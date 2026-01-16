@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Hub - Shipment Tracking</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container" style="display: flex; align-items: center; gap: 1rem;">
+            <img src="/logo.png" alt="Logo" style="height: 50px; width: auto; border-radius: 8px;">
+            <div class="logo" id="headerTitle">LogisticsHub</div>
+        </div>
+        <nav>
+            <!-- Admin Link Hidden -->
+        </nav>
+    </header>
+
+    <main>
+        <div class="glass-card">
+            <h2>Transporter Details</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>Transporter Name</h3>
+                    <p id="transporterName">Loading...</p>
+                </div>
+                <div class="info-item">
+                    <h3>Experience</h3>
+                    <p id="experience">Loading...</p>
+                </div>
+                <div class="info-item">
+                    <h3>Contact</h3>
+                    <p id="contactPhone">Loading...</p>
+                </div>
+                <div class="info-item">
+                    <h3>GSTN</h3>
+                    <p id="gstn">Loading...</p>
+                </div>
+                <div class="info-item">
+                    <h3>GPS Location</h3>
+                    <p><a id="gpsLink" href="#" target="_blank" style="color: #60a5fa; text-decoration: none;">View Map
+                            📍</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- UPI / Payment Section -->
+        <div class="glass-card" style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+            <div>
+                <h2>Payment Info</h2>
+                <div class="info-item">
+                    <h3>UPI ID</h3>
+                    <p id="upiId">Loading...</p>
+                </div>
+            </div>
+            <div id="qrContainer" style="background: white; padding: 10px; border-radius: 8px;">
+                <!-- QR Code will be inserted here -->
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <h2>Active Transit Routes</h2>
+            <div class="table-container">
+                <table id="transitsTable">
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Via (Intermediate)</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

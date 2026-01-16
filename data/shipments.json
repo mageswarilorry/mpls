@@ -1,0 +1,17 @@
+{
+  "transporterName": "MAGESWARI PARCEL LORRY SERVICE",
+  "experience": "15 Years of Experiances",
+  "contactPhone": "7299544742, 7373320202",
+  "gstn": "33EBTPM4034G1ZJ",
+  "upiId": "gpay-12190017958@okbizaxis",
+  "gpsLocation": "https://maps.app.goo.gl/u8mp5Gj5fEkhn2Ge7",
+  "transits": [
+    {
+      "from": "CHENNAI",
+      "to": "CHEYYAR",
+      "intermediate": "Ayyangarkulam, Dusi, Maamandoor, Dharmapuram, Cheyyar SIPCOT all Phase, Mankal Koot Road, Akkur Koot Road, Koozhamandhal",
+      "status": "On Time",
+      "id": "TRN-549508"
+    }
+  ]
+}

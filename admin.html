@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Logistics Hub</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">LogisticsHub Admin</div>
+        <nav>
+            <a href="/" target="_blank">View Site</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Update Transporter Info -->
+        <div class="glass-card">
+            <h2>Update Transporter Information</h2>
+            <form id="updateInfoForm">
+                <div class="form-group">
+                    <label for="transporterName">Transporter Name</label>
+                    <input type="text" id="transporterName" name="transporterName">
+                </div>
+                <div class="form-group">
+                    <label for="experience">Experience (e.g., 10 Years)</label>
+                    <input type="text" id="experience" name="experience">
+                </div>
+                <div class="form-group">
+                    <label for="contactPhone">Contact Phone</label>
+                    <input type="text" id="contactPhone" name="contactPhone">
+                </div>
+                <div class="form-group">
+                    <label for="gstn">GSTN</label>
+                    <input type="text" id="gstn" name="gstn">
+                </div>
+                <div class="form-group">
+                    <label for="upiId">UPI ID</label>
+                    <input type="text" id="upiId" name="upiId">
+                </div>
+                <div class="form-group">
+                    <label for="gpsLocation">GPS Location (URL)</label>
+                    <input type="text" id="gpsLocation" name="gpsLocation">
+                </div>
+                <button type="submit" class="btn-primary">Update Info</button>
+            </form>
+        </div>
+
+        <!-- Add New Transit -->
+        <div class="glass-card">
+            <h2>Add New Transit Route</h2>
+            <form id="addTransitForm">
+                <input type="hidden" id="editId"> <!-- Hidden ID for Editing -->
+                <div class="info-grid">
+                    <div class="form-group">
+                        <label for="from">From Location</label>
+                        <input type="text" id="from" name="from" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="to">To Location</label>
+                        <input type="text" id="to" name="to" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="intermediate">Intermediate / Via</label>
+                        <input type="text" id="intermediate" name="intermediate" placeholder="Optional">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <input type="text" id="status" name="status" placeholder="e.g. On Time" required>
+                    </div>
+                </div>
+                <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                    <button type="submit" class="btn-primary" id="saveBtn">Add Transit Route</button>
+                    <button type="button" id="cancelBtn"
+                        style="display:none; padding:1rem; border:1px solid #ccc; background:transparent; color:white; border-radius:8px; cursor:pointer;">Cancel
+                        Edit</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Manage Routes List -->
+        <div class="glass-card">
+            <h2>Manage Existing Routes</h2>
+            <div class="table-container">
+                <table id="adminRoutesTable">
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/admin.js"></script>
+    <script>
+        // Init Check
+        checkAuth();
+        // Load initial data for form
+        fetch('/api/info')
+            .then(res => res.json())
+            .then(data => {
+                if (data.warehouseName) document.getElementById('warehouseName').value = data.warehouseName;
+                if (data.warehouseLocation) document.getElementById('warehouseLocation').value = data.warehouseLocation;
+                if (data.contactPhone) document.getElementById('contactPhone').value = data.contactPhone;
+            });
+    </script>
+</body>
+
+</html>
